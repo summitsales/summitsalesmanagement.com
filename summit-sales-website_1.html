@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Summit Sales | Commercial Sales Specialists</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#0c1824;
+  --ink-mid:#253344;
+  --ink-muted:#4a6070;
+  --navy:#173a5e;
+  --navy-light:#1f4f80;
+  --steel:#2c6090;
+  --ice:#dceaf8;
+  --ice-pale:#f3f7fc;
+  --white:#ffffff;
+  --ghost:#f8fafb;
+  --border:#d4e1ef;
+  --gold:#9a7a2e;
+  --gold-light:#c9a84c;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+.display{font-family:'Cormorant Garamond',serif;font-weight:600;line-height:1.05;letter-spacing:-0.01em}
+.display-i{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;line-height:1.1}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;
+  background:rgba(10,20,34,0.96);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(16px);
+}
+.logo-wrap{display:flex;align-items:center;gap:13px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--navy-light);border-radius:7px;display:flex;align-items:center;justify-content:center}
+.logo-mark svg{width:22px;height:22px}
+.logo-text{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:19px;color:#fff;letter-spacing:0.08em}
+.logo-text sup{font-family:'Outfit',sans-serif;font-size:9px;font-weight:300;letter-spacing:0.2em;color:rgba(255,255,255,0.45);text-transform:uppercase;margin-left:2px;vertical-align:super}
+.nav-links{list-style:none;display:flex;align-items:center;gap:40px}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,0.55);font-size:13px;font-weight:400;letter-spacing:0.04em;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff !important;font-size:13px !important;font-weight:500 !important;padding:9px 22px;border-radius:4px;letter-spacing:0.06em;transition:background .2s,border-color .2s !important}
+.nav-btn:hover{background:rgba(255,255,255,0.07) !important;border-color:rgba(255,255,255,0.4) !important}
+
+/* HERO */
+.hero{min-height:100vh;background:#0b1929;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 56px 80px;position:relative;overflow:hidden}
+.hero-lines{position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.018) 0 1px,transparent 1px 100px),repeating-linear-gradient(0deg,rgba(255,255,255,0.018) 0 1px,transparent 1px 80px);pointer-events:none}
+.hero-glow{position:absolute;top:-200px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(28,75,140,0.25) 0%,transparent 65%);pointer-events:none}
+.hero-left{max-width:580px;position:relative;z-index:1;padding-right:40px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold-light);margin-bottom:28px}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold-light)}
+.hero h1{font-size:clamp(44px,5.5vw,72px);color:#fff;margin-bottom:8px}
+.hero-sub-h{font-size:clamp(32px,4vw,52px);color:rgba(255,255,255,0.35);margin-bottom:32px}
+.hero-body{font-size:16px;line-height:1.8;color:rgba(255,255,255,0.55);max-width:440px;margin-bottom:48px}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:transparent;border:1px solid var(--gold-light);color:var(--gold-light);font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;border-radius:3px;text-decoration:none;transition:background .2s,color .2s}
+.btn-gold:hover{background:var(--gold-light);color:#fff}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.6);font-size:13px;font-weight:400;letter-spacing:0.06em;padding:14px 32px;border-radius:3px;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.4);color:#fff}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hero-right{position:relative;z-index:1;display:flex;justify-content:flex-end}
+.hero-panel{width:100%;max-width:420px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:2px;overflow:hidden}
+.panel-header{padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:500}
+.panel-rows{display:flex;flex-direction:column}
+.panel-row{display:flex;align-items:center;gap:20px;padding:22px 28px;border-bottom:1px solid rgba(255,255,255,0.04);transition:background .2s}
+.panel-row:last-child{border-bottom:none}
+.panel-row:hover{background:rgba(255,255,255,0.03)}
+.panel-icon{width:40px;height:40px;flex-shrink:0;background:rgba(44,96,144,0.2);border:1px solid rgba(44,96,144,0.35);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.panel-icon svg{width:18px;height:18px;stroke:rgba(180,210,240,0.8);stroke-width:1.5;fill:none}
+.panel-label{font-size:13px;color:rgba(255,255,255,0.75);font-weight:400;line-height:1.4}
+.panel-sub{font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px}
+
+/* SECTIONS */
+.divider{height:1px;background:var(--border);margin:0}
+section{padding:110px 56px}
+.inner{max-width:1180px;margin:0 auto}
+.label{font-size:10px;font-weight:500;letter-spacing:0.24em;text-transform:uppercase;color:var(--steel);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.label::after{content:'';flex:1;height:1px;background:var(--border)}
+.section-h{font-size:clamp(32px,4vw,52px);color:var(--ink);margin-bottom:18px}
+.section-p{font-size:16px;line-height:1.8;color:var(--ink-muted);max-width:520px}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:64px}
+.about-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-top:48px}
+.about-stat{padding:28px 24px;background:var(--ghost)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:var(--navy);line-height:1}
+.stat-l{font-size:13px;color:var(--ink-muted);margin-top:6px;line-height:1.4}
+.about-right blockquote{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;font-style:italic;color:var(--navy);line-height:1.55;border-left:2px solid var(--gold);padding-left:28px;margin-bottom:28px}
+.about-right p{font-size:15px;line-height:1.8;color:var(--ink-muted);margin-bottom:16px}
+
+/* PROCESS */
+.process-bg{background:var(--ghost)}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-top:64px}
+.step{background:var(--white);padding:44px 36px;position:relative}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:600;color:var(--ice);line-height:1;margin-bottom:20px}
+.step-title{font-size:17px;font-weight:500;color:var(--ink);margin-bottom:12px}
+.step-text{font-size:14px;line-height:1.75;color:var(--ink-muted)}
+.step-connector{position:absolute;top:44px;right:-12px;width:24px;height:24px;background:var(--steel);border-radius:50%;z-index:2;display:flex;align-items:center;justify-content:center}
+.step-connector svg{width:11px;height:11px;stroke:#fff;stroke-width:2;fill:none}
+
+/* SERVICES */
+.services-bg{background:var(--navy)}
+.services-label{color:rgba(255,255,255,0.4)}
+.services-label::after{background:rgba(255,255,255,0.1)}
+.services-h{color:#fff}
+.services-p{color:rgba(255,255,255,0.5)}
+.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;margin-top:64px}
+.svc{background:var(--navy);padding:52px 44px;position:relative;overflow:hidden}
+.svc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.svc.primary::before{background:var(--gold-light)}
+.svc.featured-svc::before{background:linear-gradient(90deg,var(--steel),var(--ice))}
+.svc-badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:16px}
+.svc.featured-svc .svc-badge{color:var(--gold-light)}
+.svc-name{font-size:clamp(22px,2.5vw,30px);color:#fff;margin-bottom:8px}
+.svc-desc{font-size:14px;color:rgba(255,255,255,0.45);margin-bottom:36px;line-height:1.6}
+.svc-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+.svc-list li{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5}
+.svc-check{width:16px;height:16px;flex-shrink:0;margin-top:2px;border:1px solid rgba(255,255,255,0.2);border-radius:2px;display:flex;align-items:center;justify-content:center}
+.svc-check svg{width:9px;height:9px;stroke:#fff;stroke-width:2;fill:none}
+.svc-footer{margin-top:40px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.07)}
+.svc-footer-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.svc-footer-text{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.5}
+
+/* TARGETS */
+.targets-bg{background:var(--white)}
+.targets-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-top:64px}
+.tgt{background:var(--white);padding:32px 26px;transition:background .2s}
+.tgt:hover{background:var(--ice-pale)}
+.tgt-icon{width:40px;height:40px;background:var(--ice-pale);border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+.tgt-icon svg{width:18px;height:18px;stroke:var(--steel);stroke-width:1.5;fill:none}
+.tgt-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:6px}
+.tgt-desc{font-size:13px;color:var(--ink-muted);line-height:1.6}
+
+/* WHY */
+.why-bg{background:var(--ink)}
+.why-label{color:rgba(255,255,255,0.3)}
+.why-label::after{background:rgba(255,255,255,0.08)}
+.why-h{color:#fff}
+.why-grid{display:grid;grid-template-columns:5fr 4fr;gap:80px;align-items:start;margin-top:64px}
+.why-points{display:flex;flex-direction:column;gap:0}
+.why-point{display:grid;grid-template-columns:56px 1fr;gap:24px;padding:36px 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:start}
+.why-point:first-child{padding-top:0}
+.why-point:last-child{border-bottom:none}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.2);letter-spacing:0.1em;padding-top:3px}
+.why-pt-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:10px}
+.why-pt-body{font-size:14px;line-height:1.75;color:rgba(255,255,255,0.45)}
+.why-sidebar{position:sticky;top:100px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.sidebar-head{padding:24px 28px;border-bottom:1px solid rgba(255,255,255,0.06);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.3)}
+.sidebar-items{display:flex;flex-direction:column}
+.sidebar-item{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-bottom:1px solid rgba(255,255,255,0.04)}
+.sidebar-item:last-child{border-bottom:none}
+.s-label{font-size:13px;color:rgba(255,255,255,0.45)}
+.s-val{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;font-weight:600}
+
+/* CTA */
+.cta-section{background:var(--ghost);padding:110px 56px;text-align:center}
+.cta-inner{max-width:640px;margin:0 auto}
+.cta-section .section-h{font-size:clamp(36px,5vw,58px);margin-bottom:20px}
+.cta-section p{font-size:16px;line-height:1.8;color:var(--ink-muted);margin-bottom:48px}
+.cta-section .label{justify-content:center}
+.cta-section .label::after{display:none}
+.cta-section .label::before{content:'';width:28px;height:1px;background:var(--gold-light)}
+.btn-dark{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;font-size:13px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:16px 36px;border-radius:3px;text-decoration:none;transition:background .2s}
+.btn-dark:hover{background:var(--navy)}
+.btn-line{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--border);color:var(--ink-muted);font-size:13px;font-weight:400;letter-spacing:0.06em;padding:16px 36px;border-radius:3px;text-decoration:none;transition:border-color .2s,color .2s}
+.btn-line:hover{border-color:var(--steel);color:var(--steel)}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-contact{display:flex;align-items:center;justify-content:center;gap:6px;font-size:13px;color:var(--ink-muted);margin-top:36px;letter-spacing:0.02em}
+.cta-contact a{color:var(--steel);text-decoration:none}
+.cta-contact a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--ink);padding:40px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;letter-spacing:0.12em;color:rgba(255,255,255,0.6)}
+.foot-links{list-style:none;display:flex;gap:32px}
+.foot-links a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.04em;transition:color .2s}
+.foot-links a:hover{color:rgba(255,255,255,0.7)}
+.foot-copy{font-size:12px;color:rgba(255,255,255,0.2)}
+
+@media(max-width:960px){
+  nav{padding:0 28px}
+  .nav-links{display:none}
+  section{padding:80px 28px}
+  .hero{grid-template-columns:1fr;padding:120px 28px 64px}
+  .hero-right{display:none}
+  .about-grid,.services-grid,.why-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .targets-grid{grid-template-columns:1fr 1fr}
+  .cta-section{padding:80px 28px}
+  footer{padding:32px 28px;flex-direction:column;text-align:center}
+  .foot-links{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo-wrap">
+    <div class="logo-mark">
+      <svg viewBox="0 0 22 22" fill="none">
+        <polygon points="4,19 11,4 18,19" fill="#2c6090" opacity="0.9"/>
+        <polygon points="2,19 8,9 11,16" fill="#173a5e"/>
+        <polygon points="11,4 9,10 13,10" fill="rgba(255,255,255,0.85)"/>
+        <rect x="2" y="19" width="18" height="1.5" rx="0.75" fill="#173a5e"/>
+      </svg>
+    </div>
+    <span class="logo-text">SUMMIT SALES<sup>Seattle</sup></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#process">Our Approach</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#targets">Markets</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-btn">Inquire</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-lines"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-left">
+    <div class="eyebrow">Commercial Sales · Seattle</div>
+    <h1 class="display">Your pipeline,<br>built to close.</h1>
+    <h2 class="display-i hero-sub-h">Built for cleaning companies.</h2>
+    <p class="hero-body">Summit Sales acts as your dedicated outsourced sales team, handling every stage of the commercial sales process so you can focus on delivering exceptional service.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-gold">Explore Services</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-panel">
+      <div class="panel-header">What we handle end-to-end</div>
+      <div class="panel-rows">
+        <div class="panel-row">
+          <div class="panel-icon"><svg viewBox="0 0 18 18"><circle cx="9" cy="5" r="3"/><path d="M3 16s1-5 6-5 6 5 6 5"/></svg></div>
+          <div><div class="panel-label">Prospect Research</div><div class="panel-sub">Offices, property managers, medical, retail</div></div>
+        </div>
+        <div class="panel-row">
+          <div class="panel-icon"><svg viewBox="0 0 18 18"><path d="M2 4h14v10a1 1 0 01-1 1H3a1 1 0 01-1-1V4z"/><path d="M2 4l7 6 7-6"/></svg></div>
+          <div><div class="panel-label">Multi-Channel Outreach</div><div class="panel-sub">Email, phone, LinkedIn, follow-up sequences</div></div>
+        </div>
+        <div class="panel-row">
+          <div class="panel-icon"><svg viewBox="0 0 18 18"><rect x="2" y="2" width="14" height="14" rx="1"/><path d="M6 9h6M9 6v6"/></svg></div>
+          <div><div class="panel-label">Walkthrough Booking</div><div class="panel-sub">Directly on your calendar, fully confirmed</div></div>
+        </div>
+        <div class="panel-row">
+          <div class="panel-icon"><svg viewBox="0 0 18 18"><path d="M2 10l4 4 10-8"/></svg></div>
+          <div><div class="panel-label">Account Close Support</div><div class="panel-sub">In-person close assistance (Tier 2)</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="inner">
+    <div class="about-grid">
+      <div class="about-left">
+        <div class="label">About Summit Sales</div>
+        <h2 class="section-h display">A dedicated sales partner for commercial cleaning companies.</h2>
+        <div class="about-stat-row">
+          <div class="about-stat"><div class="stat-n">100%</div><div class="stat-l">Specialized in commercial cleaning</div></div>
+          <div class="about-stat"><div class="stat-n">E2E</div><div class="stat-l">Full-funnel sales execution</div></div>
+          <div class="about-stat"><div class="stat-n">Local</div><div class="stat-l">Seattle-based, in-person capable</div></div>
+          <div class="about-stat"><div class="stat-n">12 mo</div><div class="stat-l">Ongoing partnership per account</div></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <blockquote>"Most cleaning companies are excellent operators. Very few have the time or resources to build a dedicated sales function. That's exactly the gap we fill."</blockquote>
+        <p>Summit Sales was founded by Brian, a Seattle-based sales professional with multiple years of high-performance B2B sales experience. Recognizing that commercial cleaning companies often generate revenue through referrals alone with no proactive pipeline, Brian built Summit Sales to change that.</p>
+        <p>We operate as an extension of your business: representing your brand, speaking to your ideal prospects, and driving new commercial contracts without requiring you to hire, train, or manage a sales team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="process-bg" id="process">
+  <div class="inner">
+    <div class="label">Our Approach</div>
+    <h2 class="section-h display">Three stages. One outcome:<br>new commercial accounts.</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div class="step-title">Research &amp; Targeting</div>
+        <p class="step-text">We build a precision prospect list of commercial decision-makers in your target area including property managers, office administrators, facilities directors, and more. Every contact is qualified before we make first contact.</p>
+        <div class="step-connector"><svg viewBox="0 0 11 11"><path d="M2 5.5h7M6.5 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div class="step-title">Outreach &amp; Engagement</div>
+        <p class="step-text">We execute a coordinated, multi-channel outreach campaign on your behalf including personalized cold email sequences, direct phone calls, voicemail drops, and LinkedIn outreach with disciplined follow-up at every stage.</p>
+        <div class="step-connector"><svg viewBox="0 0 11 11"><path d="M2 5.5h7M6.5 2l3 3.5-3 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div class="step-title">Close &amp; Convert</div>
+        <p class="step-text">We schedule confirmed walkthroughs directly on your calendar. In our full-service tier, Brian accompanies you on the walkthrough and provides live close support so you leave with a signed contract, not just a conversation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-bg" id="services">
+  <div class="inner">
+    <div class="label services-label">Services</div>
+    <h2 class="section-h display services-h">Two service tiers,<br>built around your needs.</h2>
+    <p class="section-p services-p">Whether you want a fully loaded calendar or a partner who closes alongside you, Summit Sales has a model that fits.</p>
+    <div class="services-grid">
+      <div class="svc primary">
+        <div class="svc-badge">Tier One</div>
+        <h3 class="svc-name display">Appointment Setting</h3>
+        <p class="svc-desc">We handle the complete top-of-funnel process and deliver confirmed walkthroughs to your calendar. You take it from there.</p>
+        <ul class="svc-list">
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Prospect research and list building</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Personalized cold email outreach and sequences</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Direct phone outreach and voicemail drops</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>LinkedIn outreach and engagement</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Multi-touch follow-up cadences</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Confirmed walkthroughs on your calendar</li>
+        </ul>
+        <div class="svc-footer">
+          <div class="svc-footer-label">Ideal for</div>
+          <div class="svc-footer-text">Companies with strong closing capability who need a consistent, qualified flow of prospects at the table.</div>
+        </div>
+      </div>
+      <div class="svc featured-svc">
+        <div class="svc-badge">Tier Two · Flagship</div>
+        <h3 class="svc-name display">Full Sales Close</h3>
+        <p class="svc-desc">Everything in Tier One, plus Brian attends the walkthrough and actively supports the close alongside you. Our most comprehensive offering.</p>
+        <ul class="svc-list">
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>All Tier One services included</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Brian joins the walkthrough in person</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Live objection handling and close support</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Contract facilitation assistance</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Performance-aligned partnership model</li>
+          <li><div class="svc-check"><svg viewBox="0 0 9 9"><path d="M1.5 4.5l2.5 2.5L7.5 2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>We succeed when you succeed</li>
+        </ul>
+        <div class="svc-footer">
+          <div class="svc-footer-label">Ideal for</div>
+          <div class="svc-footer-text">Companies seeking a true sales partner who is invested in the outcome, not just the activity.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="targets-bg" id="targets">
+  <div class="inner">
+    <div class="label">Markets We Pursue</div>
+    <h2 class="section-h display">We know exactly who to call,<br>and what to say.</h2>
+    <p class="section-p">Our outreach is targeted, researched, and personalized to the commercial segments most likely to become high-value, recurring accounts for your business.</p>
+    <div class="targets-grid">
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="7" width="16" height="10" rx="1"/><path d="M5 7V5a4 4 0 018 0v2"/></svg></div>
+        <div class="tgt-name">Property Managers</div>
+        <div class="tgt-desc">Regional and national firms managing commercial real estate. One relationship often unlocks multiple buildings.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18V7l7-6 7 6v11"/><rect x="7" y="12" width="4" height="6"/></svg></div>
+        <div class="tgt-name">Professional Offices</div>
+        <div class="tgt-desc">Law firms, financial services, accounting practices. High standards, recurring contracts, low price sensitivity.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="2" width="16" height="14" rx="1"/><path d="M1 8h16M7 2v14"/></svg></div>
+        <div class="tgt-name">Tech &amp; Corporate</div>
+        <div class="tgt-desc">Seattle's growing tech sector including satellite offices, headquarters, and corporate campuses with consistent facility needs.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 2a4 4 0 100 8 4 4 0 000-8z"/><path d="M3 17s1.5-4 6-4 6 4 6 4"/></svg></div>
+        <div class="tgt-name">Medical &amp; Dental</div>
+        <div class="tgt-desc">Clinics, dental offices, and urgent care centers. Regulated environments with strong recurring contract value.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l4-8 4 4 3-5 5 9"/></svg></div>
+        <div class="tgt-name">Car Dealerships</div>
+        <div class="tgt-desc">High daily foot traffic and exacting presentation standards make dealerships ideal ongoing cleaning clients.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="9" r="7"/><path d="M6 9h6M9 6v6"/></svg></div>
+        <div class="tgt-name">Fitness Centers</div>
+        <div class="tgt-desc">Gyms and fitness studios require daily sanitation, making them a reliable, recurring account type with clear cleaning protocols.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8l7-6 7 6v9a1 1 0 01-1 1H3a1 1 0 01-1-1V8z"/><path d="M7 18v-7h4v7"/></svg></div>
+        <div class="tgt-name">Retail Centers</div>
+        <div class="tgt-desc">Multi-tenant retail properties with a single ownership contact for cleaning across entire centers and shopping districts.</div>
+      </div>
+      <div class="tgt">
+        <div class="tgt-icon"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="1" width="16" height="16" rx="1"/><path d="M6 6h6M6 10h4M6 14h2"/></svg></div>
+        <div class="tgt-name">Schools &amp; Institutions</div>
+        <div class="tgt-desc">Private schools, nonprofits, and community organizations seeking reliable, professional cleaning partnerships.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-bg" id="why">
+  <div class="inner">
+    <div class="label why-label">Why Summit Sales</div>
+    <h2 class="section-h display why-h">Not a vendor. A partner.</h2>
+    <div class="why-grid">
+      <div class="why-points">
+        <div class="why-point">
+          <div class="why-num">01</div>
+          <div>
+            <div class="why-pt-title">Zero upfront risk</div>
+            <p class="why-pt-body">We begin with a proof-of-concept structure so you see results before making a longer-term commitment. Our compensation is tied directly to performance, so our incentives are fully aligned with yours from day one.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">02</div>
+          <div>
+            <div class="why-pt-title">We close, not just prospect</div>
+            <p class="why-pt-body">Most outsourced sales services generate activity and hand you a list. Summit Sales goes further. Our Tier Two service has Brian present at the walkthrough, supporting the close in real time. That's a fundamentally different level of commitment.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">03</div>
+          <div>
+            <div class="why-pt-title">Vertical specialization</div>
+            <p class="why-pt-body">We work exclusively within the commercial cleaning industry. That means we understand your buyers, anticipate their objections, and know which prospect segments drive the highest contract values. General sales firms cannot replicate this depth.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">04</div>
+          <div>
+            <div class="why-pt-title">Local, in-person capability</div>
+            <p class="why-pt-body">Summit Sales is headquartered in Seattle. Brian attends walkthroughs in person, building genuine relationships with prospects rather than operating as a remote call center. That presence matters at the close.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="why-num">05</div>
+          <div>
+            <div class="why-pt-title">No headcount. No overhead.</div>
+            <p class="why-pt-body">Engaging Summit Sales means you gain a full sales function without the cost and complexity of hiring, onboarding, and managing a salesperson. We operate as a seamless extension of your business without the payroll.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-sidebar">
+        <div class="sidebar-head">At a glance</div>
+        <div class="sidebar-items">
+          <div class="sidebar-item"><span class="s-label">Location</span><span class="s-val">Seattle, WA</span></div>
+          <div class="sidebar-item"><span class="s-label">Industry focus</span><span class="s-val">Commercial cleaning</span></div>
+          <div class="sidebar-item"><span class="s-label">Engagement model</span><span class="s-val">Performance-aligned</span></div>
+          <div class="sidebar-item"><span class="s-label">Sales coverage</span><span class="s-val">Full funnel</span></div>
+          <div class="sidebar-item"><span class="s-label">Close support</span><span class="s-val">In person</span></div>
+          <div class="sidebar-item"><span class="s-label">Commitment to start</span><span class="s-val">Month-to-month</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="label" style="justify-content:center">Start a Conversation</div>
+    <h2 class="section-h display">Ready to grow your commercial client base?</h2>
+    <p>If you run a commercial cleaning company in the Seattle area and want a dedicated sales partner invested in your growth, we would like to talk.</p>
+    <div class="cta-btns">
+      <a href="mailto:seattlesummit206@gmail.com" class="btn-dark">Send an Inquiry</a>
+      <a href="tel:+1" class="btn-line">Schedule a Call</a>
+    </div>
+    <div class="cta-contact">
+      <a href="mailto:seattlesummit206@gmail.com">seattlesummit206@gmail.com</a>
+      <span style="color:var(--border);margin:0 4px">·</span>
+      <span>Seattle, Washington</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-logo">SUMMIT SALES</div>
+  <ul class="foot-links">
+    <li><a href="#process">Our Approach</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#targets">Markets</a></li>
+  
